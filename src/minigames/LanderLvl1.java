@@ -15,9 +15,11 @@ import java.util.Random;
 
 public class LanderLvl1 {
 
-
     static SpriteComponent sc1;
 
+    // Constructor: Sets up Level 1 of the Space Lander game by initializing the rocket, landing pad, key controls, and collision behavior.
+    // Parameters: None
+    // Return Value: None
     public LanderLvl1() {
         final ReusableClip flame = new ReusableClip("fireburner.wav");
         final ReusableClip explode = new ReusableClip("explosion.wav");
@@ -29,6 +31,9 @@ public class LanderLvl1 {
         LandingPad lp = new LandingPad(sc1.getScene(), 500, 350);
         LanderRocket rocketImg = new LanderRocket(sc1.getScene(), 550, 50);
 
+        // Method Name: keyPressed - Handles user input for controlling the rocket (move left/right/up or quit)
+        // Parameters: KeyEvent ke - the event triggered by a key press
+        // Return Value: None
         KeyAdapter ka = new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent ke) {
@@ -51,6 +56,9 @@ public class LanderLvl1 {
             }
         };
 
+        // SpriteSpriteCollisionListener: Handles collision between the rocket and landing pad, determining if the landing was safe or not.
+        // Parameters: LanderRocket sp1 (rocket sprite), LandingPad sp2 (landing pad sprite)
+        // Return Value: None
         sc1.addSpriteSpriteCollisionListener(LanderRocket.class, LandingPad.class, new SpriteSpriteCollisionListener<LanderRocket, LandingPad>() {
             public void collision(LanderRocket sp1, LandingPad sp2) {
                 if (rocketImg.getVelY() > 1) {

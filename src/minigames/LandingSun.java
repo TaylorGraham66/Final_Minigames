@@ -11,6 +11,10 @@ public class LandingSun extends Sprite {
     private final double GRAVITATIONAL_FORCE = 0.05;
     private final int SUN_RADIUS;
 
+    // Method Name: LandingSun (constructor)
+    // What it does: Initializes the LandingSun object, sets its position, and creates an image for the sun.
+    // Parameters: Scene sc (the scene the object belongs to), int x (initial x position), int y (initial y position), int radius (radius of the sun)
+    // Return Value: None (constructor)
     public LandingSun(Scene sc, int x, int y, int radius) {
         super(sc);
         this.SUN_RADIUS = radius;
@@ -19,6 +23,10 @@ public class LandingSun extends Sprite {
         setPicture(createSunImage(radius));
     }
 
+    // Method Name: createSunImage
+    // What it does: Creates and returns an image of the sun with a radial gradient and flares.
+    // Parameters: int radius (radius of the sun)
+    // Return Value: Picture (image of the sun with flares)
     private Picture createSunImage(int radius) {
         BufferedImage img = BasicFrame.createImage(radius * 2, radius * 2);
         Graphics2D g = (Graphics2D) img.getGraphics();
@@ -48,6 +56,10 @@ public class LandingSun extends Sprite {
         return new Picture(img);
     }
 
+    // Method Name: applyGravity
+    // What it does: Applies gravitational force from the sun to the rocket, pulling it towards the sun. If the rocket gets too close, it is destroyed.
+    // Parameters: LanderRocket rocket (the rocket affected by the gravity)
+    // Return Value: None
     public void applyGravity(LanderRocket rocket) {
         double rocketCenterX = rocket.getX() + rocket.getWidth()/2;
         double rocketCenterY = rocket.getY() + rocket.getHeight()/2;

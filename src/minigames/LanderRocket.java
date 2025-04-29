@@ -16,6 +16,10 @@ public class LanderRocket extends Sprite {
     Picture rocket;
     Picture rocketWithFlame;
 
+    // Method Name: LanderRocket (constructor)
+    // What it does: Initializes the LanderRocket object, setting up the initial properties such as position, velocity, and rocket pictures. It also adds a movement task to the clock worker to update the rocket's position based on gravity.
+    // Parameters: Scene sc (the scene the rocket belongs to), int x (initial x position), int y (initial y position)
+    // Return Value: None (constructor)
     public LanderRocket(Scene sc, int x, int y) {
         super(sc);
         int w = 20;
@@ -45,29 +49,53 @@ public class LanderRocket extends Sprite {
         ClockWorker.addTask(movement);
     }
 
+    // Method Name: applyThrust
+    // What it does: Applies thrust to the rocket, modifying its velocity based on the given acceleration values.
+    // Parameters: double xAccel (acceleration in the x direction), double yAccel (acceleration in the y direction)
+    // Return Value: None (void method)
     public void applyThrust(double xAccel, double yAccel) {
         velX += xAccel * THRUST_POWER;
         velY += yAccel * THRUST_POWER;
     }
 
+    // Method Name: applyGravityPull
+    // What it does: Applies gravity pull to the rocket's velocity based on external forces.
+    // Parameters: double forceX (force in the x direction), double forceY (force in the y direction)
+    // Return Value: None (void method)
     public void applyGravityPull(double forceX, double forceY) {
         velX += forceX;
         velY += forceY;
     }
 
+    // Method Name: setVel
+    // What it does: Sets the velocity of the rocket directly.
+    // Parameters: double x (velocity in the x direction), double y (velocity in the y direction)
+    // Return Value: None (void method)
     public void setVel(double x, double y) {
         this.velX = x;
         this.velY = y;
     }
 
+    // Method Name: getVelX
+    // What it does: Retrieves the current velocity in the x direction.
+    // Parameters: None
+    // Return Value: double (the current velocity in the x direction)
     public double getVelX() {
         return velX;
     }
 
+    // Method Name: getVelY
+    // What it does: Retrieves the current velocity in the y direction.
+    // Parameters: None
+    // Return Value: double (the current velocity in the y direction)
     public double getVelY() {
         return velY;
     }
 
+    // Method Name: drawRocket
+    // What it does: Draws a rocket with optional flame based on the provided dimensions and flame status.
+    // Parameters: int w (width of the rocket), int h (height of the rocket), boolean withFlame (whether the rocket should have a flame or not)
+    // Return Value: BufferedImage (the image of the rocket)
     private BufferedImage drawRocket(int w, int h, boolean withFlame) {
         BufferedImage img = BasicFrame.createImage(w, h);
         Graphics2D g = (Graphics2D) img.getGraphics();
@@ -99,15 +127,27 @@ public class LanderRocket extends Sprite {
         return img;
     }
 
+    // Method Name: update
+    // What it does: Updates the rocket's position based on its velocity.
+    // Parameters: None
+    // Return Value: None (void method)
     public void update() {
         moveObject();
     }
 
+    // Method Name: moveObject
+    // What it does: Moves the rocket by updating its position based on its velocity.
+    // Parameters: None
+    // Return Value: None (void method)
     public void moveObject() {
         setX(getX() + velX);
         setY(getY() + velY);
     }
 
+    // Method Name: processEvent
+    // What it does: Handles the collision events for the rocket, such as when it hits the edges or misses the landing pad.
+    // Parameters: SpriteCollisionEvent se (the collision event)
+    // Return Value: None (void method)
     @Override
     public void processEvent(SpriteCollisionEvent se) {
         SpriteComponent sc = getSpriteComponent();

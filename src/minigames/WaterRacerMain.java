@@ -21,6 +21,10 @@ public class WaterRacerMain {
     final int[] counter = {0};
     final int[] elapsedTime = {0};
 
+    // Method Name: timerTask.run
+    // What it does: Updates the counter, increases player speed, and spawns obstacles at intervals. The interval between obstacles decreases as time progresses.
+    // Parameters: None
+    // Return Value: None
     Task timerTask = new Task() {
         double playerSpeed = 2.0;
         int spawnInterval = 1500;
@@ -40,8 +44,8 @@ public class WaterRacerMain {
                     wr_counter.setText("Time: " + counter[0]);
                 });
 
-                if (playerSpeed < 8.0) {
-                    playerSpeed += 0.1;
+                if (playerSpeed < 10.0) {
+                    playerSpeed += 0.15;
                 }
 
                 wr_player.setBaseSpeed(playerSpeed);
@@ -57,6 +61,10 @@ public class WaterRacerMain {
             }
         }
 
+        // Method Name: spawnObstacle
+        // What it does: Spawns a new obstacle at a random position within the screen boundaries.
+        // Parameters: None
+        // Return Value: None
         private void spawnObstacle() {
             int yPos = Home.rand.nextInt(0, 800);
             int xPos = Home.rand.nextInt(0, 2000);
@@ -68,6 +76,10 @@ public class WaterRacerMain {
     final SpriteComponent sc2 = new SpriteComponent();
     WaterRacerPlayer wr_player = new WaterRacerPlayer(sc2.getScene());
 
+    // Method Name: WaterRacerMain (constructor)
+    // What it does: Initializes the game environment, including the background, layout, start button, return button, and key listener. It also starts the game and handles player movement and collisions.
+    // Parameters: None
+    // Return Value: None
     public WaterRacerMain() {
         sc2.setPreferredSize(Home.SCREEN_SIZE);
         sc2.getScene().setPainter(new BackgroundPainter(new Picture("racer.png")));
@@ -131,6 +143,10 @@ public class WaterRacerMain {
             }
         });
 
+        // Method Name: SpriteSpriteCollisionListener.collision
+        // What it does: Handles the collision between the player and the obstacle. If they collide, the game ends and a message is shown.
+        // Parameters: WaterRacerPlayer sp1 (the player sprite), WaterRacerOb sp2 (the obstacle sprite)
+        // Return Value: None
         sc2.addSpriteSpriteCollisionListener(WaterRacerPlayer.class, WaterRacerOb.class, new SpriteSpriteCollisionListener<WaterRacerPlayer, WaterRacerOb>() {
             public void collision(WaterRacerPlayer sp1, WaterRacerOb sp2) {
                 JOptionPane.showMessageDialog(sc2, "You died!");

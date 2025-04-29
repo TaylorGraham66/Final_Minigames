@@ -24,12 +24,21 @@ public class WaveGameMain {
     public static int wg_rounds = 1;
     static JLabel wg_waveLabel = new JLabel("Wave: 1");
 
+    // Method Name: wg_spawn
+    // What it does: Spawns a number of enemies (wg_enemies) in the game by creating new WaveGameEnemy objects.
+    // Parameters:
+    //   SpriteComponent sc - The component where enemies are placed.
+    // Return Value: None
     public static void wg_spawn(SpriteComponent sc) {
         for (int i = 0; i < wg_enemies; i++) {
             new WaveGameEnemy(sc.getScene());
         }
     }
 
+    // Method Name: WaveGameMain (constructor)
+    // What it does: Initializes the main game components, including UI layout, player movement, enemy spawning, and collision detection. Sets up action listeners for buttons and key presses.
+    // Parameters: None
+    // Return Value: None
     public WaveGameMain() {
         final SpriteComponent sc1 = new SpriteComponent();
         sc1.setPreferredSize(Home.SCREEN_SIZE);

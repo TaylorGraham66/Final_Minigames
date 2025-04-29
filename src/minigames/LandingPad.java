@@ -9,6 +9,10 @@ import java.awt.image.BufferedImage;
 
 public class LandingPad extends Sprite {
 
+    // Method Name: LandingPad (constructor)
+    // What it does: Initializes the LandingPad object, sets its position, and creates a visual representation of the landing pad using graphics.
+    // Parameters: Scene sc (the scene the object belongs to), int x (initial x position), int y (initial y position)
+    // Return Value: None (constructor)
     public LandingPad(Scene sc, int x, int y) {
         super(sc);
 

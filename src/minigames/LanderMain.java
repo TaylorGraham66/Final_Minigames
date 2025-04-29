@@ -20,7 +20,9 @@ public class LanderMain {
     static Card lvl5 = Home.bf.getCard();
     static Card lvl6 = Home.bf.getCard();
 
-
+    // Method Name: painter - Custom painter for the background of the game with random stars
+    // Parameters: Graphics g, Dimension d (dimensions of the window)
+    // Return Value: None (void method)
     static basicgraphics.images.Painter painter = new Painter() {
         @Override
         public void paint(Graphics g, Dimension d) {
@@ -39,10 +41,15 @@ public class LanderMain {
         }
     };
 
+    // Method Name: LanderMain constructor - Sets up the main screen and initializes level buttons, actions, and transitions
+    // Parameters: None
+    // Return Value: None (constructor)
     public LanderMain() {
 
+        // Set background image for the main screen
         sl1.setPainter(new BackgroundPainter(new Picture("freespace.png")));
 
+        // Set up labels for the layout of the main screen
         String[][] sl_lables = {
                 {"Title", "Title", "Title"},
                 {"Level1", "Level2", "Level3"},
@@ -51,9 +58,11 @@ public class LanderMain {
         };
         sl1.setStringLayout(sl_lables);
 
+        // Title label for the main screen
         JLabel sl_title = new JLabel("Space Lander");
         sl_title.setForeground(Color.white);
 
+        // Button for starting Level 1
         JButton sl_level1 = new JButton("Level 1");
         sl_level1.addActionListener(new ActionListener() {
             @Override
@@ -66,6 +75,7 @@ public class LanderMain {
             }
         });
 
+        // Button for starting Level 2
         JButton sl_level2 = new JButton("Level 2");
         sl_level2.addActionListener(new ActionListener() {
             @Override
@@ -78,6 +88,7 @@ public class LanderMain {
             }
         });
 
+        // Button for starting Level 3
         JButton sl_level3 = new JButton("Level 3");
         sl_level3.addActionListener(new ActionListener() {
             @Override
@@ -90,6 +101,7 @@ public class LanderMain {
             }
         });
 
+        // Button for starting Level 4
         JButton sl_level4 = new JButton("Level 4");
         sl_level4.addActionListener(new ActionListener() {
             @Override
@@ -101,6 +113,8 @@ public class LanderMain {
                 ClockWorker.addTask(LanderLvl4.sc4.moveSprites());
             }
         });
+
+        // Button for starting Level 5
         JButton sl_level5 = new JButton("Level 5");
         sl_level5.addActionListener(new ActionListener() {
             @Override
@@ -112,6 +126,8 @@ public class LanderMain {
                 ClockWorker.addTask(LanderLvl5.sc5.moveSprites());
             }
         });
+
+        // Button for starting Level 6
         JButton sl_level6 = new JButton("Level 6");
         sl_level6.addActionListener(new ActionListener() {
             @Override
@@ -124,6 +140,7 @@ public class LanderMain {
             }
         });
 
+        // Button for returning to the home screen
         JButton sl_return = new JButton("Return");
         sl_return.addActionListener(new ActionListener() {
             @Override
@@ -133,6 +150,7 @@ public class LanderMain {
             }
         });
 
+        // Add components to the layout of the main screen
         sl1.add("Title", sl_title);
         sl1.add("Level1", sl_level1);
         sl1.add("Level2", sl_level2);

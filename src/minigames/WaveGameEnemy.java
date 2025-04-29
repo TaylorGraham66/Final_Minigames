@@ -12,6 +12,11 @@ public class WaveGameEnemy extends Sprite {
     static int enemyCount;
     public Picture enemy_pic;
 
+    // Method Name: WaveGameEnemy (constructor)
+    // What it does: Initializes a new enemy sprite, increments the enemy count, sets the enemy's image, randomly positions it on the screen (avoiding a specific area), and sets its velocity.
+    // Parameters:
+    //   Scene sc - The scene where the enemy sprite is placed.
+    // Return Value: None
     public WaveGameEnemy(Scene sc) {
         super(sc);
         enemyCount++;
@@ -29,6 +34,11 @@ public class WaveGameEnemy extends Sprite {
         setVel(1.5 * Home.rand.nextDouble() - 1, 1.5 * Home.rand.nextDouble());
     }
 
+    // Method Name: processEvent
+    // What it does: Handles collision events for the enemy sprite, specifically if the enemy hits the screen boundaries, it wraps around to the opposite side.
+    // Parameters:
+    //   SpriteCollisionEvent se - The event that contains collision information (event type and specific side of collision).
+    // Return Value: None
     @Override
     public void processEvent(SpriteCollisionEvent se) {
         SpriteComponent sc = getSpriteComponent();

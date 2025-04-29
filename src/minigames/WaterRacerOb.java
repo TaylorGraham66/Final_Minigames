@@ -10,6 +10,15 @@ import java.awt.image.BufferedImage;
 
 public class WaterRacerOb extends Sprite {
 
+    // Method Name: WaterRacerOb (constructor)
+    // What it does: Initializes the WaterRacerOb sprite, randomly setting its position and generating an image for the obstacle (either a shark, fish, or seaweed).
+    // Parameters:
+    //   Scene sc - The scene where the sprite is placed.
+    //   int x_bound - The minimum x-coordinate boundary for the obstacle's position.
+    //   int y_bound - The minimum y-coordinate boundary for the obstacle's position.
+    //   int x2_bound - The maximum x-coordinate boundary for the obstacle's position.
+    //   int y2_bound - The maximum y-coordinate boundary for the obstacle's position.
+    // Return Value: None
     public WaterRacerOb(Scene sc, int x_bound, int y_bound, int x2_bound, int y2_bound) {
         super(sc);
 
@@ -32,6 +41,12 @@ public class WaterRacerOb extends Sprite {
         setPicture(new Picture(image));
     }
 
+    // Method Name: createSharkImage
+    // What it does: Creates a BufferedImage representing a shark with a specified width and height.
+    // Parameters:
+    //   int width - The width of the shark image.
+    //   int height - The height of the shark image.
+    // Return Value: BufferedImage - The generated image of a shark.
     private BufferedImage createSharkImage(int width, int height) {
         BufferedImage image = BasicFrame.createImage(width, height);
         Graphics2D g = image.createGraphics();
@@ -68,6 +83,10 @@ public class WaterRacerOb extends Sprite {
         return image;
     }
 
+    // Method Name: createFishImage
+    // What it does: Creates a fish image of random size by calling specific fish image creation methods for small, medium, or large fish.
+    // Parameters: None
+    // Return Value: BufferedImage - The generated fish image.
     private BufferedImage createFishImage() {
         int size = Home.rand.nextInt(20, 60);
         if (size < 30) {
@@ -79,6 +98,12 @@ public class WaterRacerOb extends Sprite {
         }
     }
 
+    // Method Name: createSmallFishImage
+    // What it does: Creates a small fish image with specified width and height.
+    // Parameters:
+    //   int width - The width of the fish image.
+    //   int height - The height of the fish image.
+    // Return Value: BufferedImage - The generated small fish image.
     private BufferedImage createSmallFishImage(int width, int height) {
         BufferedImage image = BasicFrame.createImage(width, height);
         Graphics2D g = image.createGraphics();
@@ -103,6 +128,12 @@ public class WaterRacerOb extends Sprite {
         return image;
     }
 
+    // Method Name: createMediumFishImage
+    // What it does: Creates a medium fish image with specified width and height.
+    // Parameters:
+    //   int width - The width of the fish image.
+    //   int height - The height of the fish image.
+    // Return Value: BufferedImage - The generated medium fish image.
     private BufferedImage createMediumFishImage(int width, int height) {
         BufferedImage image = BasicFrame.createImage(width, height);
         Graphics2D g = image.createGraphics();
@@ -127,6 +158,12 @@ public class WaterRacerOb extends Sprite {
         return image;
     }
 
+    // Method Name: createLargeFishImage
+    // What it does: Creates a large fish image with specified width and height.
+    // Parameters:
+    //   int width - The width of the fish image.
+    //   int height - The height of the fish image.
+    // Return Value: BufferedImage - The generated large fish image.
     private BufferedImage createLargeFishImage(int width, int height) {
         BufferedImage image = BasicFrame.createImage(width, height);
         Graphics2D g = image.createGraphics();
@@ -151,6 +188,12 @@ public class WaterRacerOb extends Sprite {
         return image;
     }
 
+    // Method Name: createSeaweedImage
+    // What it does: Creates a seaweed image with specified width and height, drawing the lines in a wavy pattern to simulate seaweed.
+    // Parameters:
+    //   int width - The width of the seaweed image.
+    //   int height - The height of the seaweed image.
+    // Return Value: BufferedImage - The generated seaweed image.
     private BufferedImage createSeaweedImage(int width, int height) {
         BufferedImage image = BasicFrame.createImage(width, height);
         Graphics2D g = image.createGraphics();
