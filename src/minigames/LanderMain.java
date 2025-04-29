@@ -13,10 +13,13 @@ import java.util.Random;
 public class LanderMain {
 
     static Card sl1 = Home.bf.getCard();
-    static Card pause = Home.bf.getCard();
     static Card lvl1 = Home.bf.getCard();
     static Card lvl2 = Home.bf.getCard();
     static Card lvl3 = Home.bf.getCard();
+    static Card lvl4 = Home.bf.getCard();
+    static Card lvl5 = Home.bf.getCard();
+    static Card lvl6 = Home.bf.getCard();
+
 
     static basicgraphics.images.Painter painter = new Painter() {
         @Override
@@ -43,6 +46,7 @@ public class LanderMain {
         String[][] sl_lables = {
                 {"Title", "Title", "Title"},
                 {"Level1", "Level2", "Level3"},
+                {"Level4", "Level5", "Level6"},
                 {"Return", "Return", "Return"}
         };
         sl1.setStringLayout(sl_lables);
@@ -86,6 +90,40 @@ public class LanderMain {
             }
         });
 
+        JButton sl_level4 = new JButton("Level 4");
+        sl_level4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                LanderLvl4 LL4 = new LanderLvl4();
+                lvl4.showCard();
+                lvl4.requestFocus();
+                ClockWorker.initialize(7);
+                ClockWorker.addTask(LanderLvl4.sc4.moveSprites());
+            }
+        });
+        JButton sl_level5 = new JButton("Level 5");
+        sl_level5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                LanderLvl5 LL5 = new LanderLvl5();
+                lvl5.showCard();
+                lvl5.requestFocus();
+                ClockWorker.initialize(7);
+                ClockWorker.addTask(LanderLvl5.sc5.moveSprites());
+            }
+        });
+        JButton sl_level6 = new JButton("Level 6");
+        sl_level6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                LanderLvl6 LL6 = new LanderLvl6();
+                lvl6.showCard();
+                lvl6.requestFocus();
+                ClockWorker.initialize(7);
+                ClockWorker.addTask(LanderLvl6.sc6.moveSprites());
+            }
+        });
+
         JButton sl_return = new JButton("Return");
         sl_return.addActionListener(new ActionListener() {
             @Override
@@ -99,6 +137,9 @@ public class LanderMain {
         sl1.add("Level1", sl_level1);
         sl1.add("Level2", sl_level2);
         sl1.add("Level3", sl_level3);
+        sl1.add("Level4", sl_level4);
+        sl1.add("Level5", sl_level5);
+        sl1.add("Level6", sl_level6);
         sl1.add("Return", sl_return);
     }
 }

@@ -41,8 +41,7 @@ public class LanderLvl1 {
                     rocketImg.setVel(0, -.4);
                     rocketImg.setPicture(rocketImg.rocketWithFlame);
                 } else if (ke.getKeyCode() == KeyEvent.VK_ESCAPE) {
-                    LanderMain.sl1.showCard();
-                    LanderMain.sl1.requestFocus();
+                    System.exit(0);
                 }
             }
 

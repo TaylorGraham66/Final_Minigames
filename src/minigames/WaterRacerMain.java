@@ -41,7 +41,7 @@ public class WaterRacerMain {
                 });
 
                 if (playerSpeed < 8.0) {
-                    playerSpeed += 0.05;
+                    playerSpeed += 0.1;
                 }
 
                 wr_player.setBaseSpeed(playerSpeed);
