@@ -8,6 +8,8 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.Random;
 
+// Minigames by Taylor
+
 public class Home {
 
     final public static Random rand = new Random();
