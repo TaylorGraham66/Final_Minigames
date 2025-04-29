@@ -74,8 +74,6 @@ public class WaterRacerMain {
         sc2.getScene().setBackgroundSize(new Dimension(2000, 900));
         sc2.getScene().periodic_x = true;
 
-        ClockWorker.addTask(timerTask);
-
         wr1.add(sc2);
 
         String[][] sr_labels = {
@@ -91,6 +89,7 @@ public class WaterRacerMain {
         wr_start.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                ClockWorker.addTask(timerTask);
                 wr2.showCard();
                 wr2.requestFocus();
                 ClockWorker.initialize(7);
