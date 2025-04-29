@@ -8,7 +8,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class LandingSun extends Sprite {
-    private final double GRAVITATIONAL_FORCE = 0.1;
+    private final double GRAVITATIONAL_FORCE = 0.05;
     private final int SUN_RADIUS;
 
     public LandingSun(Scene sc, int x, int y, int radius) {
